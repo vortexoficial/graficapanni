@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, MapPin, MessageCircle, Phone, Printer, Sparkles } from "lucide-react";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import Image from "next/image";
+import Link from "next/link";
 import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 const WHATSAPP = "https://wa.me/5511958575089";
@@ -16,6 +17,7 @@ const navLinks = [
   { label: "Diferenciais", href: "#diferenciais" },
   { label: "Processo", href: "#processo" },
   { label: "Portfólio", href: "#portfolio" },
+  { label: "Loja da Panni", href: "/loja" },
 ];
 
 const services = [
@@ -110,14 +112,14 @@ export function Footer() {
               <ul className="grid gap-2.5">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a
-                      href={link.href}
+                    <Link
+                      href={link.href.startsWith("#") ? `/${link.href}` : link.href}
                       className="group inline-flex cursor-pointer items-center gap-2 text-sm transition-opacity hover:opacity-80"
                       style={{ color: "var(--text-muted)" }}
                     >
                       {link.label}
                       <ArrowUpRight size={13} className="opacity-0 transition-opacity group-hover:opacity-100" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -130,15 +132,15 @@ export function Footer() {
               <ul className="grid gap-2.5">
                 {services.map((service) => (
                   <li key={service.label}>
-                    <a
-                      href={service.href}
+                    <Link
+                      href={service.href.startsWith("#") ? `/${service.href}` : service.href}
                       className="group inline-flex cursor-pointer items-center gap-2 text-sm transition-opacity hover:opacity-80"
                       style={{ color: "var(--text-muted)" }}
                     >
                       <Printer size={13} style={{ color: "var(--cyan)" }} />
                       {service.label}
                       <ArrowUpRight size={13} className="opacity-0 transition-opacity group-hover:opacity-100" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

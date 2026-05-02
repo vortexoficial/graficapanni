@@ -2,6 +2,7 @@ import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
 import { MarqueeStrip } from "@/components/sections/marquee-strip";
 import { ServicesCarousel } from "@/components/sections/services-carousel";
+import { StoreSection } from "@/components/store/store-section";
 import { HighlightStrip } from "@/components/sections/highlight-strip";
 import { About } from "@/components/sections/about";
 import { Services } from "@/components/sections/services";
@@ -23,6 +24,7 @@ export default function Home() {
         <Hero />
         <MarqueeStrip />
         <ServicesCarousel />
+        <StoreSection />
         <HighlightStrip />
         <About />
         <Services />

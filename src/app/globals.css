@@ -134,6 +134,12 @@
     font-family: var(--font-heading), var(--font-sans), sans-serif;
     color: var(--text-primary);
   }
+  :where(button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href], summary, label[for], input[type="button"], input[type="submit"], input[type="reset"]) {
+    cursor: pointer;
+  }
+  :where(button:disabled, [aria-disabled="true"], input:disabled) {
+    cursor: not-allowed;
+  }
 }
 
 *::-webkit-scrollbar {
