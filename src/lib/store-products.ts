@@ -27,7 +27,21 @@ export type StoreProduct = {
   featured: boolean;
 };
 
-const sharedDetailImage = "/store/panni-detail.svg";
+const demoPhoto = (id: string) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1200`;
+
+const productDemoPhotos = {
+  caneca: demoPhoto("20843712"),
+  placaPvc: demoPhoto("9544250"),
+  placaAcm: demoPhoto("12305329"),
+  adesivos: demoPhoto("10772232"),
+  chaveiro: demoPhoto("12114172"),
+  squeeze: demoPhoto("3737800"),
+  miniBanner: demoPhoto("9289302"),
+  tag: demoPhoto("9594081"),
+  quadro: demoPhoto("12486418"),
+  placaPix: demoPhoto("12935051"),
+} as const;
 
 export const storeProducts: StoreProduct[] = [
   {
@@ -40,7 +54,7 @@ export const storeProducts: StoreProduct[] = [
       "Caneca personalizada com impressão colorida, acabamento brilhante e visual preparado para presentear ou reforçar a identidade da sua marca no dia a dia.",
     price: "A partir de R$ 39,90",
     availability: "Pronta entrega",
-    images: ["/store/caneca-panni.svg", sharedDetailImage],
+    images: [productDemoPhotos.caneca],
     specifications: [
       "Capacidade: 325ml",
       "Material: cerâmica",
@@ -60,7 +74,7 @@ export const storeProducts: StoreProduct[] = [
       "Placa em PVC com impressão de alta qualidade, indicada para vitrines, interiores, recepções, eventos e espaços que precisam de uma comunicação bonita e prática.",
     price: "A partir de R$ 49,90",
     availability: "Pronta entrega",
-    images: ["/store/placa-pvc.svg", sharedDetailImage],
+    images: [productDemoPhotos.placaPvc],
     specifications: [
       "Material: PVC",
       "Tamanhos variados",
@@ -80,7 +94,7 @@ export const storeProducts: StoreProduct[] = [
       "Placa em ACM com presença visual forte, indicada para fachadas, lojas, clínicas e negócios que precisam aparecer com acabamento profissional.",
     price: "A partir de R$ 149,90",
     availability: "Sob consulta",
-    images: ["/store/placa-acm.svg", sharedDetailImage],
+    images: [productDemoPhotos.placaAcm],
     specifications: [
       "Material: ACM",
       "Alta durabilidade",
@@ -100,7 +114,7 @@ export const storeProducts: StoreProduct[] = [
       "Kit de adesivos personalizados para embalagens, brindes, identificação e divulgação, com recorte especial e acabamento de acordo com o uso.",
     price: "A partir de R$ 29,90",
     availability: "Pronta entrega",
-    images: ["/store/kit-adesivos.svg", sharedDetailImage],
+    images: [productDemoPhotos.adesivos],
     specifications: [
       "Recorte especial",
       "Vinil adesivo",
@@ -120,7 +134,7 @@ export const storeProducts: StoreProduct[] = [
       "Chaveiro personalizado para presentear clientes, montar lembrancinhas ou criar brindes de marca com visual exclusivo e produção prática.",
     price: "A partir de R$ 19,90",
     availability: "Pronta entrega",
-    images: ["/store/chaveiro.svg", sharedDetailImage],
+    images: [productDemoPhotos.chaveiro],
     specifications: [
       "Formato personalizado",
       "Impressão colorida",
@@ -140,7 +154,7 @@ export const storeProducts: StoreProduct[] = [
       "Squeeze personalizado para empresas, eventos e campanhas, com aplicação visual preparada para deixar sua marca presente na rotina do cliente.",
     price: "A partir de R$ 59,90",
     availability: "Pronta entrega",
-    images: ["/store/squeeze.svg", sharedDetailImage],
+    images: [productDemoPhotos.squeeze],
     specifications: [
       "Material leve e resistente",
       "Tampa rosqueável",
@@ -160,7 +174,7 @@ export const storeProducts: StoreProduct[] = [
       "Mini banner de mesa para destacar promoções, QR codes, menus, informativos e campanhas em balcões ou pontos de atendimento.",
     price: "A partir de R$ 34,90",
     availability: "Pronta entrega",
-    images: ["/store/mini-banner.svg", sharedDetailImage],
+    images: [productDemoPhotos.miniBanner],
     specifications: [
       "Estrutura compacta",
       "Impressão colorida",
@@ -180,7 +194,7 @@ export const storeProducts: StoreProduct[] = [
       "Tags personalizadas para valorizar embalagens, peças, presentes e produtos artesanais com um toque profissional e acabamento bem resolvido.",
     price: "A partir de R$ 24,90",
     availability: "Pronta entrega",
-    images: ["/store/tag-loja.svg", sharedDetailImage],
+    images: [productDemoPhotos.tag],
     specifications: [
       "Papel de alta gramatura",
       "Furo opcional",
@@ -200,7 +214,7 @@ export const storeProducts: StoreProduct[] = [
       "Quadro personalizado para presentes afetivos, decoração de ambientes e peças comemorativas com arte visual criada sob medida.",
     price: "A partir de R$ 69,90",
     availability: "Pronta entrega",
-    images: ["/store/quadro.svg", sharedDetailImage],
+    images: [productDemoPhotos.quadro],
     specifications: [
       "Impressão em alta definição",
       "Tamanhos variados",
@@ -220,7 +234,7 @@ export const storeProducts: StoreProduct[] = [
       "Placa Pix personalizada para facilitar pagamentos no balcão, com QR Code, identidade visual da marca e acabamento pronto para uso.",
     price: "A partir de R$ 39,90",
     availability: "Pronta entrega",
-    images: ["/store/placa-pix.svg", sharedDetailImage],
+    images: [productDemoPhotos.placaPix],
     specifications: [
       "Base rígida",
       "QR Code personalizado",
