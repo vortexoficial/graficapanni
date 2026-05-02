@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteLoader } from "@/components/site-loader";
+import { SiteFloatingActions } from "@/components/site-floating-actions";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -95,6 +96,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <SiteLoader />
         {children}
+        <SiteFloatingActions />
       </body>
     </html>
   );
