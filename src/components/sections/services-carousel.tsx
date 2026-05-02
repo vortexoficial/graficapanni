@@ -22,8 +22,7 @@ import {
   Tags,
   type LucideIcon,
 } from "lucide-react";
-
-const WHATSAPP = "https://wa.me/5511958575089";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 type GraphicService = {
   icon: LucideIcon;
@@ -133,12 +132,9 @@ const services: GraphicService[] = [
   },
 ];
 
-function whatsappHref(service: string) {
-  const message = `Olá! Quero solicitar um orçamento para ${service}.`;
-  return `${WHATSAPP}?text=${encodeURIComponent(message)}`;
-}
-
 function ServiceCard({ service }: { service: GraphicService }) {
+  const { openQuoteModal } = useQuoteModal();
+
   return (
     <article
       className="service-carousel-card group flex min-h-[25rem] flex-col overflow-hidden rounded-lg transition-transform duration-300 hover:-translate-y-1"
@@ -192,16 +188,15 @@ function ServiceCard({ service }: { service: GraphicService }) {
           </p>
         </div>
 
-        <motion.a
-          href={whatsappHref(service.title)}
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.button
+          type="button"
+          onClick={() => openQuoteModal(service.title)}
           whileTap={{ scale: 0.96 }}
           className="btn-gradient mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-bold"
         >
           Solicitar orçamento
           <ArrowRight size={16} />
-        </motion.a>
+        </motion.button>
       </div>
     </article>
   );

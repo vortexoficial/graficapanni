@@ -2,10 +2,11 @@
 
 import { motion } from "motion/react";
 import { MessageCircle, ChevronDown } from "lucide-react";
-
-const WHATSAPP = "https://wa.me/5511958575089";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 export function Hero() {
+  const { openQuoteModal } = useQuoteModal();
+
   return (
     <section
       className="hero-section relative min-h-screen flex flex-col items-center justify-center text-center px-4 py-24 sm:py-28 overflow-hidden"
@@ -109,17 +110,16 @@ export function Hero() {
           className="hero-actions flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
         >
           {/* Botão primário, gradiente */}
-          <motion.a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            type="button"
+            onClick={() => openQuoteModal("Orçamento geral")}
             whileHover={{ scale: 1.04, filter: "brightness(1.1)" }}
             whileTap={{ scale: 0.96 }}
             className="hero-button btn-gradient inline-flex items-center justify-center gap-2 text-sm sm:text-base px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold"
           >
             <MessageCircle size={20} />
             Solicitar orçamento pelo WhatsApp
-          </motion.a>
+          </motion.button>
 
           {/* Botão secundário */}
           <motion.button

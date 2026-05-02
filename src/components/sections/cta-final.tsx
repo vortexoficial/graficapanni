@@ -4,12 +4,12 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 import { MessageCircle } from "lucide-react";
-
-const WHATSAPP = "https://wa.me/5511958575089";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 export function CtaFinal() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <section ref={ref} className="site-section py-24 px-4" id="contato"
@@ -52,13 +52,14 @@ export function CtaFinal() {
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+            <motion.button
+              type="button"
+              onClick={() => openQuoteModal("Orçamento geral")}
               whileHover={{ scale: 1.04, filter: "brightness(1.1)" }} whileTap={{ scale: 0.96 }}
               className="btn-gradient inline-flex items-center justify-center gap-2 text-sm md:text-base px-6 py-3.5 md:px-8 md:py-4 rounded-lg md:rounded-xl font-bold">
               <MessageCircle size={20} />
               Chamar no WhatsApp
-            </motion.a>
+            </motion.button>
             <motion.button
               whileHover={{ background: "linear-gradient(135deg, #00D5FF 0%, #8B2CFF 100%)", color: "var(--bg-main)" }}
               whileTap={{ scale: 0.96 }}

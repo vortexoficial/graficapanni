@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, MapPin, MessageCircle, Phone, Printer, Sparkles } from "lucide-react";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import Image from "next/image";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 const WHATSAPP = "https://wa.me/5511958575089";
 const INSTAGRAM = "https://www.instagram.com/graficapanni";
@@ -27,6 +28,8 @@ const services = [
 ];
 
 export function Footer() {
+  const { openQuoteModal } = useQuoteModal();
+
   return (
     <>
       <footer
@@ -71,17 +74,16 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
-              <motion.a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                type="button"
+                onClick={() => openQuoteModal("Orçamento geral")}
                 whileHover={{ scale: 1.03, filter: "brightness(1.08)" }}
                 whileTap={{ scale: 0.96 }}
                 className="btn-gradient inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-bold"
               >
                 <MessageCircle size={17} />
                 Solicitar orçamento
-              </motion.a>
+              </motion.button>
               <motion.a
                 href={INSTAGRAM}
                 target="_blank"

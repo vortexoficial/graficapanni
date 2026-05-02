@@ -13,25 +13,28 @@ import { Gallery } from "@/components/sections/gallery";
 import { Institutional } from "@/components/sections/institutional";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { Footer } from "@/components/sections/footer";
+import { QuoteModalProvider } from "@/components/quote/quote-modal-provider";
 
 export default function Home() {
   return (
-    <main className="relative overflow-x-hidden w-full">
-      <Navbar />
-      <Hero />
-      <MarqueeStrip />
-      <ServicesCarousel />
-      <HighlightStrip />
-      <About />
-      <Services />
-      <WhyUs />
-      <TargetAudience />
-      <Process />
-      <CtaMid />
-      <Gallery />
-      <Institutional />
-      <CtaFinal />
-      <Footer />
-    </main>
+    <QuoteModalProvider>
+      <main className="relative overflow-x-hidden w-full">
+        <Navbar />
+        <Hero />
+        <MarqueeStrip />
+        <ServicesCarousel />
+        <HighlightStrip />
+        <About />
+        <Services />
+        <WhyUs />
+        <TargetAudience />
+        <Process />
+        <CtaMid />
+        <Gallery />
+        <Institutional />
+        <CtaFinal />
+        <Footer />
+      </main>
+    </QuoteModalProvider>
   );
 }

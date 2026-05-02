@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 import { MessageCircle, Star, Sliders, Zap, ImageIcon } from "lucide-react";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 const reasons = [
   { icon: MessageCircle, title: "Atendimento rápido e próximo",  desc: "Você fala diretamente com quem entende do serviço e recebe orientação para escolher a melhor solução.", color: "#FFD21F" },
@@ -20,6 +21,7 @@ function fadingOutline(color: string) {
 export function WhyUs() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <section ref={ref} className="site-section py-24 px-4" id="diferenciais"
@@ -95,13 +97,14 @@ export function WhyUs() {
               <p className="site-card-copy text-sm mb-5" style={{ color: "var(--text-muted)" }}>
                 Solicite um orçamento sem compromisso e receba atendimento personalizado.
               </p>
-              <motion.a
-                href="https://wa.me/5511958575089" target="_blank" rel="noopener noreferrer"
+              <motion.button
+                type="button"
+                onClick={() => openQuoteModal("Orçamento geral")}
                 whileHover={{ scale: 1.04, filter: "brightness(1.1)" }} whileTap={{ scale: 0.96 }}
                 className="btn-gradient inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-lg">
                 <MessageCircle size={15} />
                 Pedir orçamento
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         </div>

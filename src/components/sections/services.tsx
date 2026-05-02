@@ -9,8 +9,7 @@ import {
   Printer,
   type LucideIcon,
 } from "lucide-react";
-
-const WHATSAPP = "https://wa.me/5511958575089";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 type Service = {
   icon: LucideIcon;
@@ -82,12 +81,9 @@ const services: Service[] = [
   },
 ];
 
-function whatsappHref(service: string) {
-  const message = `Olá! Quero solicitar um orçamento para ${service}.`;
-  return `${WHATSAPP}?text=${encodeURIComponent(message)}`;
-}
-
 function ServiceCard({ service, index }: { service: Service; index: number }) {
+  const { openQuoteModal } = useQuoteModal();
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
@@ -160,17 +156,16 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       </div>
 
       <div className="mt-auto pt-6">
-        <motion.a
-          href={whatsappHref(service.title)}
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.button
+          type="button"
+          onClick={() => openQuoteModal(service.title)}
           whileTap={{ scale: 0.97 }}
           className="btn-gradient inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg px-4 text-sm font-bold focus-visible:outline-2 focus-visible:outline-offset-2"
           aria-label={`Solicitar orçamento para ${service.title}`}
         >
           Solicitar orçamento
           <ArrowRight size={16} />
-        </motion.a>
+        </motion.button>
       </div>
     </motion.article>
   );

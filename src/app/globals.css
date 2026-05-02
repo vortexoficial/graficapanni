@@ -116,6 +116,8 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,122,0,0.78) rgba(255,255,255,0.055);
   }
   html {
     scroll-behavior: smooth;
@@ -132,6 +134,30 @@
     font-family: var(--font-heading), var(--font-sans), sans-serif;
     color: var(--text-primary);
   }
+}
+
+*::-webkit-scrollbar {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.055);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255,210,31,0.95), rgba(255,122,0,0.9), rgba(255,0,127,0.82));
+  border: 2px solid rgba(5,7,10,0.82);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFD21F, #FF7A00, #FF007F);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* Gradient text utility */
@@ -164,6 +190,36 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, #FFD21F, #FF007F, #00D5FF, transparent);
   border: none;
+}
+
+.quote-modal-panel {
+  width: min(640px, calc(100vw - 32px));
+  max-height: min(90vh, 46rem);
+}
+
+.quote-modal-form {
+  max-height: calc(min(90vh, 46rem) - 7.25rem);
+}
+
+.quote-modal-body {
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.quote-modal-actions {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.quote-scroll-area::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.quote-scroll-area::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+}
+
+.quote-scroll-area::-webkit-scrollbar-thumb {
+  border-color: rgba(18,24,33,0.95);
 }
 
 .site-loader {
@@ -456,6 +512,29 @@
 }
 
 @media (max-width: 767px) {
+  .quote-modal-panel {
+    width: calc(100vw - 24px);
+    max-height: min(92vh, calc(100svh - 24px));
+    border-radius: 18px !important;
+  }
+
+  .quote-modal-form {
+    max-height: calc(min(92vh, 100svh - 24px) - 6.25rem);
+  }
+
+  .quote-modal-body {
+    gap: 0.875rem !important;
+    padding: 0.875rem !important;
+  }
+
+  .quote-modal-actions {
+    padding: 0.75rem 0.875rem max(0.875rem, env(safe-area-inset-bottom)) !important;
+  }
+
+  .quote-modal-actions button {
+    width: 100%;
+  }
+
   .site-section {
     padding-top: 3.5rem !important;
     padding-bottom: 3.5rem !important;
@@ -547,6 +626,10 @@
 }
 
 @media (max-width: 380px) {
+  .quote-modal-panel {
+    width: calc(100vw - 16px);
+  }
+
   .site-heading {
     font-size: 1.375rem !important;
   }

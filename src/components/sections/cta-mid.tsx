@@ -4,13 +4,14 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 import { MessageCircle } from "lucide-react";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 const products = ["Cartão de visita", "Banner", "Adesivo", "Fachada", "Faixa", "Toldo", "Folder", "Placa"];
-const WHATSAPP = "https://wa.me/5511958575089";
 
 export function CtaMid() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <section ref={ref} className="site-section relative py-24 px-4 overflow-hidden"
@@ -56,13 +57,14 @@ export function CtaMid() {
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.45 }}>
-          <motion.a
-            href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+          <motion.button
+            type="button"
+            onClick={() => openQuoteModal("Orçamento geral")}
             whileHover={{ scale: 1.04, filter: "brightness(1.1)" }} whileTap={{ scale: 0.96 }}
             className="btn-gradient inline-flex items-center gap-3 text-sm md:text-lg px-6 py-3.5 md:px-10 md:py-4 rounded-lg md:rounded-xl font-bold">
             <MessageCircle size={22} />
             Pedir orçamento agora
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
     </section>

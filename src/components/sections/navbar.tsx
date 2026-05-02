@@ -4,8 +4,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import Image from "next/image";
-
-const WHATSAPP = "https://wa.me/5511958575089";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
@@ -18,6 +17,7 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { openQuoteModal } = useQuoteModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -72,15 +72,16 @@ export function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <motion.a
-              href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+            <motion.button
+              type="button"
+              onClick={() => openQuoteModal("Orçamento geral")}
               whileHover={{ scale: 1.04, filter: "brightness(1.1)" }}
               whileTap={{ scale: 0.96 }}
               className="btn-gradient inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-xl"
             >
               <MessageCircle size={15} />
               Orçamento
-            </motion.a>
+            </motion.button>
           </div>
 
           <button className="md:hidden p-1 transition-colors"
@@ -106,15 +107,18 @@ export function Navbar() {
               {link.label}
             </button>
           ))}
-          <motion.a
-            href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+          <motion.button
+            type="button"
             whileTap={{ scale: 0.96 }}
             className="btn-gradient inline-flex items-center justify-center gap-2 text-sm px-5 py-3 rounded-lg mt-2"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => {
+              openQuoteModal("Orçamento geral");
+              setMobileOpen(false);
+            }}
           >
             <MessageCircle size={16} />
             Pedir orçamento
-          </motion.a>
+          </motion.button>
         </div>
       </motion.div>
     </>

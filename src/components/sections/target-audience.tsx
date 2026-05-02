@@ -17,8 +17,7 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
-
-const WHATSAPP = "https://wa.me/5511958575089";
+import { useQuoteModal } from "@/components/quote/quote-modal-provider";
 
 const brandColors = ["#FFD21F", "#FF007F", "#00D5FF", "#8B2CFF", "#37FF8B", "#FF7A00", "#FFD21F", "#00D5FF"];
 
@@ -89,13 +88,9 @@ const audiences: Audience[] = [
   },
 ];
 
-function whatsappHref(audience: string) {
-  const message = `Olá! Quero orientação para materiais gráficos para ${audience}.`;
-  return `${WHATSAPP}?text=${encodeURIComponent(message)}`;
-}
-
 function AudienceCard({ item, index }: { item: Audience; index: number }) {
   const color = brandColors[index % brandColors.length];
+  const { openQuoteModal } = useQuoteModal();
 
   return (
     <article
@@ -160,10 +155,9 @@ function AudienceCard({ item, index }: { item: Audience; index: number }) {
         </div>
 
         <div className="mt-auto pt-6">
-          <motion.a
-            href={whatsappHref(item.title)}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            type="button"
+            onClick={() => openQuoteModal("Orçamento geral")}
             whileTap={{ scale: 0.97 }}
             className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg px-4 text-sm font-bold transition-colors sm:w-auto"
             style={{
@@ -175,7 +169,7 @@ function AudienceCard({ item, index }: { item: Audience; index: number }) {
           >
             Pedir orientação
             <ArrowRight size={16} />
-          </motion.a>
+          </motion.button>
         </div>
       </div>
     </article>
