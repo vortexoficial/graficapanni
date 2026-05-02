@@ -11,30 +11,38 @@ export function Hero() {
       className="hero-section relative min-h-screen flex flex-col items-center justify-center text-center px-4 py-24 sm:py-28 overflow-hidden"
       style={{ backgroundColor: "var(--bg-main)" }}
     >
-      {/* Radial glows */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute" style={{
-          top: "30%", left: "15%",
-          width: "480px", height: "480px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(255,0,127,0.18) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }} />
-        <div className="absolute" style={{
-          top: "20%", right: "10%",
-          width: "400px", height: "400px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,213,255,0.15) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }} />
-        <div className="absolute" style={{
-          bottom: "10%", left: "50%", transform: "translateX(-50%)",
-          width: "600px", height: "300px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(255,210,31,0.10) 0%, transparent 70%)",
-          filter: "blur(50px)",
-        }} />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <video
+          className="h-full w-full scale-[1.08] object-cover object-center md:hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="/gallery/videomobile.webm" type="video/webm" />
+        </video>
+        <video
+          className="hidden h-full w-full scale-[1.07] object-cover object-center md:block"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="/gallery/videodesktop.webm" type="video/webm" />
+        </video>
       </div>
+
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(5,7,10,0.62) 0%, rgba(5,7,10,0.48) 42%, rgba(5,7,10,0.82) 100%)",
+        }}
+      />
 
       {/* Grid decorativo */}
       <div

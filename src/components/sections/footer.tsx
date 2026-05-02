@@ -18,17 +18,13 @@ const navLinks = [
 ];
 
 const services = [
-  "Impressão digital",
-  "Comunicação visual",
-  "Cartões e papelaria",
-  "Banners e faixas",
-  "Fachadas em ACM",
-  "Adesivos e rótulos",
+  { label: "Impressão digital", href: "#servicos" },
+  { label: "Comunicação visual", href: "#servicos" },
+  { label: "Cartões e papelaria", href: "#servicos" },
+  { label: "Banners e faixas", href: "#servicos" },
+  { label: "Fachadas em ACM", href: "#servicos" },
+  { label: "Adesivos e rótulos", href: "#servicos" },
 ];
-
-function scrollToSection(href: string) {
-  document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-}
 
 export function Footer() {
   return (
@@ -112,15 +108,14 @@ export function Footer() {
               <ul className="grid gap-2.5">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <button
-                      type="button"
-                      onClick={() => scrollToSection(link.href)}
-                      className="group inline-flex items-center gap-2 text-sm transition-opacity hover:opacity-100"
+                    <a
+                      href={link.href}
+                      className="group inline-flex cursor-pointer items-center gap-2 text-sm transition-opacity hover:opacity-80"
                       style={{ color: "var(--text-muted)" }}
                     >
                       {link.label}
                       <ArrowUpRight size={13} className="opacity-0 transition-opacity group-hover:opacity-100" />
-                    </button>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -132,9 +127,16 @@ export function Footer() {
               </h4>
               <ul className="grid gap-2.5">
                 {services.map((service) => (
-                  <li key={service} className="flex items-center gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
-                    <Printer size={13} style={{ color: "var(--cyan)" }} />
-                    {service}
+                  <li key={service.label}>
+                    <a
+                      href={service.href}
+                      className="group inline-flex cursor-pointer items-center gap-2 text-sm transition-opacity hover:opacity-80"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      <Printer size={13} style={{ color: "var(--cyan)" }} />
+                      {service.label}
+                      <ArrowUpRight size={13} className="opacity-0 transition-opacity group-hover:opacity-100" />
+                    </a>
                   </li>
                 ))}
               </ul>

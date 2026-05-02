@@ -148,7 +148,7 @@ function ServiceCard({ service }: { service: GraphicService }) {
       }}
     >
       <div
-        className="service-carousel-media relative h-44 shrink-0 overflow-hidden rounded-t-lg"
+        className="service-carousel-media relative h-44 w-full shrink-0 overflow-hidden rounded-t-lg"
         style={{
           borderBottom: `1px solid ${service.color}25`,
           background: `linear-gradient(145deg, ${service.color}12, rgba(255,255,255,0.035))`,
@@ -161,7 +161,7 @@ function ServiceCard({ service }: { service: GraphicService }) {
             fill
             draggable={false}
             sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="select-none object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full select-none object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div
