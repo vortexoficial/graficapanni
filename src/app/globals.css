@@ -211,6 +211,7 @@
 }
 
 .floating-widget__item {
+  position: relative;
   display: flex;
   align-items: flex-end;
   gap: 0.62rem;
@@ -218,9 +219,11 @@
 }
 
 .floating-widget__bubble {
-  position: relative;
-  margin-bottom: 0.8rem;
-  max-width: 14.5rem;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.72rem);
+  width: max-content;
+  max-width: calc(100vw - 2rem);
   border-radius: 1rem;
   padding: 0.72rem 0.95rem;
   background: linear-gradient(145deg, rgba(43,62,92,0.98), rgba(30,45,68,0.98));
@@ -231,9 +234,11 @@
   font-weight: 800;
   line-height: 1.2;
   text-align: center;
+  white-space: nowrap;
   opacity: 0;
   transform: translate(8px, 10px) scale(0.96);
   filter: blur(8px);
+  pointer-events: none;
   animation: floating-bubble-toast 5.4s ease 0.85s both;
 }
 
@@ -686,6 +691,7 @@
     max-width: 10rem;
     padding: 0.62rem 0.78rem;
     font-size: 0.68rem;
+    white-space: normal;
   }
 
   .floating-widget__bubble--music {

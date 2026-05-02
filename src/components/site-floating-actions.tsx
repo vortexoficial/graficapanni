@@ -36,18 +36,6 @@ export function SiteFloatingActions() {
   return (
     <div className="floating-widget" aria-label="Atalhos rápidos">
       <div className="floating-widget__item">
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="floating-widget__button floating-widget__button--whatsapp"
-          aria-label="Chamar a Gráfica Panni no WhatsApp"
-        >
-          <WhatsAppIcon width={22} height={22} />
-        </a>
-      </div>
-
-      <div className="floating-widget__item">
         <span className="floating-widget__bubble floating-widget__bubble--music">
           Ouça música enquanto navega
         </span>
@@ -60,6 +48,18 @@ export function SiteFloatingActions() {
         >
           {isPlaying ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}
         </button>
+      </div>
+
+      <div className="floating-widget__item">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-widget__button floating-widget__button--whatsapp"
+          aria-label="Chamar a Gráfica Panni no WhatsApp"
+        >
+          <WhatsAppIcon width={22} height={22} />
+        </a>
       </div>
 
       <audio
