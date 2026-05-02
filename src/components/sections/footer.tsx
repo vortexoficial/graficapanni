@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowUpRight, Camera, MapPin, MessageCircle, Phone, Printer, Sparkles } from "lucide-react";
+import { ArrowUpRight, MapPin, MessageCircle, Phone, Printer, Sparkles } from "lucide-react";
+import { InstagramIcon } from "@/components/icons/instagram-icon";
 import Image from "next/image";
 
 const WHATSAPP = "https://wa.me/5511958575089";
@@ -94,7 +95,7 @@ export function Footer() {
                 className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-bold transition-colors"
                 style={{ color: "var(--text-primary)", border: "1px solid var(--border-strong)", background: "rgba(255,255,255,0.035)" }}
               >
-                <Camera size={17} />
+                <InstagramIcon width={17} height={17} />
                 Instagram
               </motion.a>
             </div>
@@ -164,7 +165,7 @@ export function Footer() {
                     className="flex items-start gap-2 text-sm transition-opacity hover:opacity-80"
                     style={{ color: "var(--text-muted)" }}
                   >
-                    <Camera size={15} className="mt-0.5 shrink-0" style={{ color: "var(--magenta)" }} />
+                    <InstagramIcon width={15} height={15} className="mt-0.5 shrink-0" style={{ color: "var(--magenta)" }} />
                     @graficapanni
                   </a>
                 </li>

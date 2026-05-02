@@ -1,59 +1,58 @@
 "use client";
 
 import { motion, useInView } from "motion/react";
-import { Camera } from "lucide-react";
-import Image from "next/image";
+import { InstagramIcon } from "@/components/icons/instagram-icon";
 import { useRef } from "react";
 
 const INSTAGRAM = "https://www.instagram.com/graficapanni";
 
 const galleryItems = [
   {
-    src: "https://images.unsplash.com/photo-1693031630369-bd429a57f115?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1693031630369-bd429a57f115?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Impressora de grande formato imprimindo material colorido",
   },
   {
-    src: "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Máquina de impressão offset em produção",
   },
   {
-    src: "https://images.unsplash.com/photo-1599590984817-0c15f31b1fa5?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1599590984817-0c15f31b1fa5?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Cartão de visita impresso sendo apresentado à mão",
   },
   {
-    src: "https://images.unsplash.com/photo-1623305463957-df17547327cb?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1623305463957-df17547327cb?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Pilhas de cartões de visita em papel branco",
   },
   {
-    src: "https://images.unsplash.com/photo-1718670013988-c6e3edb92345?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1718670013988-c6e3edb92345?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Cartão de visita preto com acabamento fosco",
   },
   {
-    src: "https://images.unsplash.com/photo-1636247498719-a8a04ed961a4?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1636247498719-a8a04ed961a4?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Conjunto de cartões de visita coloridos sobre fundo escuro",
   },
   {
-    src: "https://images.unsplash.com/photo-1710732652617-264d6f860546?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1710732652617-264d6f860546?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Cardápio impresso aberto sobre mesa de restaurante",
   },
   {
-    src: "https://images.unsplash.com/photo-1557499305-bd68d0ad468d?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1557499305-bd68d0ad468d?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Capas de cardápio com textura e impressão escura",
   },
   {
-    src: "https://images.unsplash.com/photo-1715193132905-471035273bfd?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1715193132905-471035273bfd?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Rótulo personalizado aplicado em garrafa e faixa impressa",
   },
   {
-    src: "https://images.unsplash.com/photo-1667201081117-99e1d9aecd76?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1667201081117-99e1d9aecd76?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Mockup de cartões brancos para papelaria corporativa",
   },
   {
-    src: "https://images.unsplash.com/photo-1694476114840-e84670cabafb?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1694476114840-e84670cabafb?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Cartão impresso laranja sendo segurado por duas mãos",
   },
   {
-    src: "https://images.unsplash.com/photo-1693031630146-568e2f72db0e?auto=format&fit=crop&q=80&w=1400",
+    src: "https://images.unsplash.com/photo-1693031630146-568e2f72db0e?auto=format&fit=crop&w=900&h=1200&q=82",
     alt: "Impressora de lona e comunicação visual em funcionamento",
   },
 ];
@@ -62,16 +61,17 @@ function GalleryCard({ item }: { item: (typeof galleryItems)[number] }) {
   return (
     <article
       className="gallery-marquee-card group relative overflow-hidden rounded-lg"
-      style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(255,255,255,0.09)" }}
+      role="img"
+      aria-label={item.alt}
+      style={{
+        backgroundColor: "var(--bg-card)",
+        backgroundImage: `url("${item.src}")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        border: "1px solid rgba(255,255,255,0.09)",
+      }}
     >
-      <Image
-        src={item.src}
-        alt={item.alt}
-        fill
-        draggable={false}
-        className="select-none object-cover transition-transform duration-700 group-hover:scale-105"
-        sizes="(min-width: 1280px) 24rem, (min-width: 768px) 34vw, 82vw"
-      />
+      <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url("${item.src}")`, backgroundPosition: "center", backgroundSize: "cover" }} />
       <div
         className="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.36), transparent 55%)" }}
@@ -123,12 +123,7 @@ export function Gallery() {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.75, delay: 0.18 }}
-        className="gallery-marquee-viewport"
-      >
+      <div className="gallery-marquee-viewport">
         <div className="gallery-marquee-track">
           <div className="gallery-marquee-group">
             {galleryItems.map((item) => (
@@ -141,7 +136,7 @@ export function Gallery() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 18 }}
@@ -157,7 +152,7 @@ export function Gallery() {
           whileTap={{ scale: 0.96 }}
           className="btn-gradient inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold md:px-7"
         >
-          <Camera size={18} />
+          <InstagramIcon width={18} height={18} />
           Ver no Instagram
         </motion.a>
       </motion.div>
