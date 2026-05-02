@@ -59,7 +59,11 @@ export function StoreSection() {
       ref={ref}
       id="loja"
       className="site-section relative overflow-hidden px-4 py-20 md:py-24"
-      style={{ backgroundColor: "var(--bg-secondary)", borderBottom: "1px solid var(--border-soft)" }}
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(255,0,127,0.16) 0%, rgba(255,43,43,0.1) 42%, rgba(5,7,10,0.96) 100%), var(--bg-main)",
+        borderBottom: "1px solid var(--border-soft)",
+      }}
     >
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.18]"
@@ -70,10 +74,10 @@ export function StoreSection() {
         }}
       />
       <div
-        className="absolute inset-x-0 top-0 h-72 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 15% 0%, rgba(255,210,31,0.14), transparent 34%), radial-gradient(circle at 82% 18%, rgba(255,0,127,0.12), transparent 32%)",
+            "radial-gradient(circle at 12% 4%, rgba(255,43,43,0.16), transparent 36%), radial-gradient(circle at 82% 12%, rgba(255,0,127,0.18), transparent 34%), linear-gradient(180deg, rgba(255,0,127,0.06), rgba(255,43,43,0.04) 54%, transparent 100%)",
         }}
       />
 
@@ -173,11 +177,13 @@ export function StoreSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55, delay: 0.36 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm"
+          className="mt-8 flex flex-col items-center justify-center gap-2 text-center text-sm sm:flex-row sm:flex-wrap"
           style={{ color: "var(--text-muted)" }}
         >
           <Sparkles size={16} style={{ color: "var(--cyan)" }} />
-          Produtos físicos para presentear, vender, sinalizar e divulgar sua marca.
+          <span className="max-w-xl text-center">
+            Produtos físicos para presentear, vender, sinalizar e divulgar sua marca.
+          </span>
           <Link
             href="/loja"
             className="inline-flex items-center gap-1 font-bold text-gradient-main"
