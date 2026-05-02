@@ -27,7 +27,7 @@ const siteUrl = new URL(
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
-  title: "Gráfica Panni — Gráfica e Comunicação Visual",
+  title: "Gráfica Panni, Gráfica e Comunicação Visual",
   description:
     "Impressão gráfica e comunicação visual com qualidade, agilidade e impacto. Cartões de visita, banners, fachadas, adesivos e muito mais. São Paulo, SP.",
   applicationName: "Gráfica Panni",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Gráfica Panni — Gráfica e Comunicação Visual",
+    title: "Gráfica Panni, Gráfica e Comunicação Visual",
     description:
       "Impressão gráfica e comunicação visual com qualidade, agilidade e impacto.",
     url: "/",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gráfica Panni — Gráfica e Comunicação Visual",
+    title: "Gráfica Panni, Gráfica e Comunicação Visual",
     description:
       "Impressão gráfica e comunicação visual com qualidade, agilidade e impacto.",
     images: [

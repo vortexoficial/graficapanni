@@ -100,7 +100,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="hero-actions flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
         >
-          {/* Botão primário — gradiente */}
+          {/* Botão primário, gradiente */}
           <motion.a
             href={WHATSAPP}
             target="_blank"

@@ -70,7 +70,7 @@ export function Process() {
             className="site-copy mt-4 max-w-xl mx-auto"
             style={{ color: "var(--text-muted)" }}
           >
-            Simples, rápido e sem complicação — do pedido à entrega.
+            Simples, rápido e sem complicação, do pedido à entrega.
           </motion.p>
         </div>
 
