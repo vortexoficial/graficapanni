@@ -128,7 +128,7 @@ export function Hero() {
             onClick={() => document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" })}
             className="hero-button inline-flex items-center justify-center text-sm sm:text-base px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold transition-colors"
             style={{
-              border: "1px solid rgba(255,255,255,0.92)",
+              border: "1px solid rgba(255,255,255,0.45)",
               color: "var(--text-primary)",
               background: "transparent",
             }}
