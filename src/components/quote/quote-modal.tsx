@@ -269,7 +269,7 @@ export function QuoteModal({ open, serviceName, onClose }: QuoteModalProps) {
             transition={{ duration: 0.22, ease: "easeOut" }}
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-3 border-b px-4 py-4 sm:gap-4 sm:px-6 sm:py-5" style={{ borderColor: "rgba(255,255,255,0.09)" }}>
+            <div className="shrink-0 flex items-start justify-between gap-3 border-b px-4 py-4 sm:gap-4 sm:px-6 sm:py-5" style={{ borderColor: "rgba(255,255,255,0.09)" }}>
               <div>
                 <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] sm:text-xs" style={{ color: "var(--yellow)" }}>
                   Orçamento

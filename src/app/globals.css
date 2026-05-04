@@ -359,19 +359,20 @@
 
 .quote-modal-panel {
   width: min(640px, calc(100vw - 32px));
-  max-height: min(90vh, 46rem);
+  max-height: min(46rem, 100%);
   display: flex;
   flex-direction: column;
 }
 
 .quote-modal-form {
-  flex: 1 1 0;
+  flex: 1 1 auto;
   min-height: 0;
 }
 
 .quote-modal-body {
-  flex: 1 1 0;
+  flex: 1 1 auto;
   min-height: 0;
+  overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
 }
@@ -711,7 +712,7 @@
 
   .quote-modal-panel {
     width: calc(100vw - 24px);
-    max-height: min(92vh, calc(100svh - 24px));
+    max-height: min(92vh, 100%);
     border-radius: 18px !important;
   }
 
