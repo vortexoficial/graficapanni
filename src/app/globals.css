@@ -360,18 +360,24 @@
 .quote-modal-panel {
   width: min(640px, calc(100vw - 32px));
   max-height: min(90vh, 46rem);
+  display: flex;
+  flex-direction: column;
 }
 
 .quote-modal-form {
-  max-height: calc(min(90vh, 46rem) - 7.25rem);
+  flex: 1 1 0;
+  min-height: 0;
 }
 
 .quote-modal-body {
+  flex: 1 1 0;
+  min-height: 0;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
 }
 
 .quote-modal-actions {
+  flex-shrink: 0;
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }
 
@@ -707,10 +713,6 @@
     width: calc(100vw - 24px);
     max-height: min(92vh, calc(100svh - 24px));
     border-radius: 18px !important;
-  }
-
-  .quote-modal-form {
-    max-height: calc(min(92vh, 100svh - 24px) - 6.25rem);
   }
 
   .quote-modal-body {
